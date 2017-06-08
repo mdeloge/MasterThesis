@@ -1,0 +1,1 @@
+create table thesis.large_wide_indexed as select * from thesis.large_wide;
