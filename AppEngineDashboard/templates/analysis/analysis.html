@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Dashboard {{ type }} analysis
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h4 class="analysis-header page-title">{{ type }} Analysis</h4>
+            <hr>
+            {% for filename in list_analysis %}
+                <div class="row">
+                    {% include filename %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    {% if type == 'electricity' %}
+        {% include "/analysis/electricity_analysis.js.html" %}
+    {% elif type == 'gas' %}
+        {% include "/analysis/gas_analysis.js.html" %}
+    {% elif type == 'water' %}
+        {% include "/analysis/water_analysis.js.html" %}
+    {% endif %}
+{% endblock %}

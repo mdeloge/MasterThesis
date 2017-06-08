@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body style="text-align: center; font-family: Arial, sans-serif">
+        <h1 style="font-size: 20px;">The following sensors haven't been updating properly</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="col s4">Business</th>
+                    <th class="col s4">Sensor type</th>
+                    <th class="col s4">Last received</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for error in error_businesses %}
+                <tr>
+                    <td class="col s4">{{ error['recordName'] }}</td>
+                    <td class="col s4">{{ error['sensorType'] }}</td>
+                    <td class="col s4"><b style="color:red">{{ error['datetime'] }}</b></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ domain }}">
+            Click here to go the dashboard overview
+        </a>
+
+    </body>
+</html>

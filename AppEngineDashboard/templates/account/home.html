@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Hello, {{ name }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <h4 class="page-title">Account settings</h4>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l6 offset-m3 offset-l3">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="account-name" placeholder="Name" value="{{ name }}" type="text" autofocus onfocus="this.value = this.value;">
+                        <label for="account-name">Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="account-email" placeholder="Email address" value="{{ email }}" type="text" class="validate" disabled>
+                        <label for="account-name">Email address</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">work</i>
+                        <input id="account-business" placeholder="Business name" value="{{ business }}" type="text" class="validate" disabled>
+                        <label for="account-business">Business name</label>
+                    </div>
+                    <a class="waves-effect waves-green btn-flat" id="save-changes-button">
+                        <span id="save-changes-message">Save changes </span>
+                        <i id="save-changes-icon" class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="row">
+                    <div id="ajax-update-errors" class="alert alert-danger" role="alert" style="display: none;">
+                        <p><strong>Whoops!</strong></p>
+                        <span>Something went wrong</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+    {% include "account/account.js.html" %}
+{% endblock %}

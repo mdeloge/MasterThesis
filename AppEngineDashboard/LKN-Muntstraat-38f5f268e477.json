@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lkn-muntstraat",
+  "private_key_id": "38f5f268e4772e21249ba8e8854ec50d48ff280b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYJ7SLaj0qTGoS\nb0h22LwIjeX8x4sQT0K7l7hgEj+V72kO07VcXmi0KCho8uaoDXw7vFurLPxmhbFe\nZ2zOy/P7C7qSA1BbcCl8OYDxj5uDri6+LIKtvKsEZKbQDIlkbM+ywjWtufmX9DzO\ny1tiL0zoCaY5emjHuKc05UhY+y8dxlgXFyKZlgtlZiXTofE1o9Vb/nSYXBo8jNmJ\nb7R3N2ohDenAthAKUYVWAY3eqStc8pK3eyyi09X7c6IHVMYM0QvICH27Po8dZR1H\n3xld7Lw7HqUN0SFtYKcFd9oYkByDX+x/wD1Hh54DeHQQb6THkiMTSLZcZNZkbEDd\nlo739CVnAgMBAAECggEAXkYLqW3z4+dguXdV8L0tFCfHXi3MzhguAslopa3o0994\nuoUWE9szCJzxHMWTgICKfwCf05mV8XfYg+OVGTRpQRztRlbjTSRbr+p5KDKQarBb\nqd0uQrNpStmKOdHqttxsfBe05qUaLrpXitGZF2azQfnokih0D3srrqx5fRh1Av7T\nBfB4F9Qdc51DP4TiFCC5f8sYl2K551+OLrfLTDtfs84m0wRRrWiLB5bRhZmIYBUs\nse2llAE6F8H7A4lOd+W7OgIPyrgm68F8z0t83dqSkXmMwBXMpvspCTnddRwZFwOI\nK3B640iYZnfineFiqH3XI2F6mgvayh3iJY5aElJ/IQKBgQDNZj86hQgXNzr/uJCi\nTbEKGBJ4txedJmFjGNeXq75bpOWZrtj1/3t7ixoaCOmoE09Nu1RTbLj8e1BJwJ2Z\nRdN9z/UOh7MwebOt6S9N0XKdjDxV3r8BN8ySLXA1Gf8t5Q6951bVOu9lz6IsAuRE\nY30vZ/uDfmw/z/UM84HzEP3T7wKBgQC9o4tLUtqopEW15L9QifGF2YLMI6uykr/2\nGp0ePqOWSe/VTStJHQRPeA0vI30GoAmMbt20+bCxrNlZurQV71NGoQ2isQRETMOm\nxM4OPeOKc6V0/OVvWdSWvTRz1qYgZELwY6BhJ1D33WNbPshP8xov2BWxsO3NYPQn\n87Xq/nluCQKBgF1n0PsgwiQklqzx1rwoTolDlyrUQGXTrVfuVSSBEokEfPEdhUah\nTxtIj68lPHSVi2vS868YcytGPKW9dS3dhibhqhRYe5Fg1ugQcdWWmOOygUGfkQbR\nxDL5fNx5HQVW9BRCHsfLDFElUh9nlTzQbX5gcA1FMZ73R/4CwqaxpGx7AoGBAJi3\nYJCLK62NhNoDWZIZVFgPHwcYXsfS6CXfrtHRbdm0tyBWIdqiNHtu2WcxtBimvqnK\nCl8YiRO8d9iLw0S605xYTGvNE/uQuirN6IaNjnVLxl3c30N52vp9agUzQdtqAoIm\nKNy0Vb8WGVI80AGaa2dGI8pSCl9Pia+20rRotA9JAoGAA30tWFOX6vuHDf4eNczN\nSqqiXW63QAbw0aFvA3U960mHVff/sJtNFL6J0BC175sfCfg7riD9YnGhfumdvM85\nZQs4Ui6WMJvlUH3RUqAtJIEkbsSqZRiHmZCZyaPVjwOj4VyubyGVf2ZtwzOoVast\nnzwkUEp4cP1/fy5e4TuW3FM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "lkn-muntstraat@appspot.gserviceaccount.com",
+  "client_id": "113261735607922368285",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lkn-muntstraat%40appspot.gserviceaccount.com"
+}

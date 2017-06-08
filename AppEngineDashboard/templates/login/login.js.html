@@ -1,0 +1,40 @@
+<script>
+    $('#sign-in-button').click(function () {
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+        var sign_in_button = $('#sign-in-message');
+        sign_in_button.html('Signing in ...');
+
+        var sign_in_button_icon = $('#sign-in-icon');
+        sign_in_button_icon.html("");
+        sign_in_button_icon.removeClass('material-icons').addClass('fa-circle-o-notch fa-spin');
+
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: {
+                email: email,
+                password: password
+            },
+            success: function (response) {
+                $('.modal-body').html(response['html']);
+            },
+            error: function (response) {
+                var ajax_errors = $('#login-errors');
+                // response.responseJSON will access the JSON object inside the response (sent by the server).
+                var title = response.responseJSON['title'];
+                var message = response.responseJSON['message'];
+
+                ajax_errors.css('display', 'block');
+                ajax_errors.find('strong').html(title);
+                ajax_errors.find('span').html(message);
+            },
+            complete: function () {
+                sign_in_button.html('Register');
+                sign_in_button_icon.removeClass('fa-circle-o-notch fa-spin').addClass('material-icons');
+                sign_in_button_icon.html('send');
+            }
+        })
+    });
+</script>

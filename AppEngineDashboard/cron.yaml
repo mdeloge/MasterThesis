@@ -1,0 +1,5 @@
+cron:
+- description: "daily analyst update for errors"
+  url: /tasks
+  schedule: every day 08:00
+  timezone: Europe/Brussels

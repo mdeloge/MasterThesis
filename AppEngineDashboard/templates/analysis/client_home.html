@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Welcome {{ name }}!
+{% endblock %}
+
+{% block content %}
+
+    <div class="container welcome">
+        <h5 class="page-title">Hello {{ name }}, welcome to your dashboard</h5>
+        <hr>
+        <h6 class="page-subtitle" style="text-align: center;">Click a sensor type below to view your data</h6>
+        <div class="row">
+            <div>
+                <div class="col s12 m4 l4" style="padding: 0;">
+                    <div class="card hoverable">
+                        <a href="/analysis/electricity/F810765C-830E-4A63-A7AE-DD32494DDAE0">
+                            <div class="card-image">
+                                <img src="static/img/lightbulbimage.jpg" style="height:213px;">
+                                <span class="card-title">Electricity</span>
+                            </div>
+                            {#                        <div class="card-action">#}
+                            {#                            <a href="/analysis/electricity/F810765C-830E-4A63-A7AE-DD32494DDAE0" class="lime-text">Electricity</a>#}
+                            {#                        </div>#}
+                        </a>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4" style="padding: 0;">
+                    <div class="card hoverable">
+                    <a href="/analysis/naturalgas/64BC8251-3268-4556-9766-E09E4262D2C6">
+                        <div class="card-image">
+                            <img src="static/img/gasFlame.jpg" style="height:213px;">
+                            <span class="card-title">Gas</span>
+                        </div>
+                        {#                        <div class="card-action">#}
+                        {#                            <a href="/analysis/naturalgas/64BC8251-3268-4556-9766-E09E4262D2C6" class="lime-text">Natural Gas</a>#}
+                        {#                        </div>#}
+                    </a>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4" style="padding: 0;">
+                    <div class="card hoverable">
+                    <a href="/analysis/drinkingwater/49B96934-6625-4172-8AF2-1DC68BE8B623">
+                        <div class="card-image">
+                            <img src="static/img/waterdropdark.jpg" style="height:213px;">
+                            <span class="card-title">Water</span>
+                        </div>
+                        {#                        <div class="card-action">#}
+                        {#                            <a href="/analysis/drinkingwater/49B96934-6625-4172-8AF2-1DC68BE8B623" class="lime-text">Water</a>#}
+                        {#                        </div>#}
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $('.materialboxed').materialbox()
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "main.html" %}
+
+{% block title %} Log in {% endblock %}
+
+
+{% block background %}
+    <script>
+        $(document).ready(function () {
+            var bckground = $('#background');
+            bckground.addClass("login-background");
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="valign-wrapper" style="width: 100%; height: 90%; position: absolute;">
+        <div class="container valign">
+            <div class="row">
+                <div class="col s12 offset-m4 m4 z-depth-4 card large" style="opacity: 0.85;">
+                    <div class="card-content login-card-content" style="height: auto; padding: 0px;">
+                        <form class="form-horizontal" action="/login" method="post">
+                            <div class="row">
+                                <div class="col s12" style="text-align: center;">
+                                    <h2>Log in</h2>
+                                </div>
+                            </div>
+                            <div class="form-group row" style="margin-bottom: 0px">
+                                <div class="col s12">
+                                    <label for="email" class="control-label">Email</label>
+                                    <div>
+                                        <input type="email" class="form-control validate" required=""
+                                               aria-required="true" name="email" placeholder="Email"
+                                               style="margin-bottom: 0px"
+                                                {% if email %}
+                                               value="{{ email }}"
+                                                {% endif %}
+                                               autofocus onfocus="this.value = this.value;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row" style="margin-bottom: 0px">>
+                                <div class="col s12">
+                                    <label for="password" class="control-label">Password</label>
+                                    <div>
+                                        <input type="password" class="form-control validate" required="" aria-required="true" name="password" placeholder="Password" style="margin-bottom: 12px">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if correct %}
+                                {% if correct == 1 %}
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <p><strong>Confirmation required</strong></p>
+                                            <span>Your account still needs confirmation. Please check you inbox for your confirmation email.</span>
+                                        </div>
+                                    </div>
+                                {% elif correct == 2 %}
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <p><strong>Wrong credentials</strong></p>
+                                            <span>The email or password you've entered is wrong, please try again.</span>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                            <div class="form-group row">
+                                <div class="col s12" style="bottom: 0;">
+                                    <button type="submit" class="btn btn-primary light-green lighten-1" style="width: 100%; opacity: 1;">
+                                        <span style="vertical-align: middle;">Sign in </span>
+                                        <i class="material-icons" style="vertical-align: middle">send</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="card-action">
+                        <span>Don't have an account yet? Go to the <a class="lime-text" href="http://www.thinkcore.be/nl/contact/" style="margin: 0;">CORE</a> website to set up a project with us!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

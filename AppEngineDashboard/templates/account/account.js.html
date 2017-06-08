@@ -1,0 +1,49 @@
+<script>
+
+    $('#save-changes-button').click(function () {
+        var email = $('#account-email').val();
+        var name = $('#account-name').val();
+
+        var save_button = $('#save-changes-message');
+        save_button.html('Saving ...');
+
+        var save_icon = $('#save-changes-icon');
+        save_icon.removeClass('fa-arrow-right').addClass('fa-circle-o-notch fa-spin');
+
+        $.ajax({
+            type: "POST",
+            url: "/account",
+            data: {
+                name: name,
+                email: email
+            },
+            success: function (response) {
+                var ajax_errors = $('#ajax-update-errors');
+                console.log(response);
+                // response.responseJSON will access the JSON object inside the response (sent by the server).
+                var title = response.title;
+                var message = response.message;
+
+                ajax_errors.css('display', 'block');
+                ajax_errors.find('strong').html(title);
+                ajax_errors.find('span').html(message);
+            },
+            error: function (response) {
+                var ajax_errors = $('#ajax-update-errors');
+                // response.responseJSON will access the JSON object inside the response (sent by the server).
+                var title = response.responseJSON['title'];
+                var message = response.responseJSON['message'];
+
+                ajax_errors.css('display', 'block');
+                ajax_errors.find('strong').html(title);
+                ajax_errors.find('span').html(message);
+            },
+            complete: function () {
+                save_button.html('Save changes ');
+                save_icon.removeClass('fa-circle-o-notch fa-spin').addClass('fa-arrow-right');
+            }
+        })
+
+    });
+
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>{% block title %}
+
+    {% endblock %}</title>
+    {#        <link rel="stylesheet" href="/static/css/bootstrap.min.css">#}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Side navbar
+            $(".button-collapse").sideNav();
+            checkCookie();
+            // Dropdown
+            $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: false, // Does not change width of dropdown to that of the activator
+                hover: true, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: true // Displays dropdown below the button
+            });
+            $('.dropdown-side-nav').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: false, // Does not change width of dropdown to that of the activator
+                hover: false, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: true // Displays dropdown below the button
+            });
+        });
+    </script>
+    {% block background %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/materialize.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+</head>
+<body>
+<div id="background" class="">
+    {%  include "commons/navbar.html" %}
+    {%  include "commons/register_modal.html" %}
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+{#        <script src="/static/js/bootstrap.min.js"></script>#}
+<script src="/static/js/materialize.js"></script>
+<script>
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i++){
+            var c = ca[i];
+            while(c.charAt(0) === ' '){
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0){
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie(){
+        var user = getCookie("User");
+        if (user !== "") {
+            $('.login-with-key').css('display', 'none');
+            $('.register-with-user').css('display', 'none');
+            $('.user-with-user').css('display', 'block');
+
+{#            var register_button = $('.register-with-user');#}
+{#            register_button.removeClass('modal-trigger');#}
+{#            register_button.addClass('dropdown-button');#}
+{#            register_button.attr("href", "#");#}
+{#            register_button.attr("data-activates", "dropdown1");#}
+{#            register_button.attr("data-below-origin", "true");#}
+        }
+    }
+</script>
+
+{% block scripts %}
+
+{% endblock %}
+
+{%  include "commons/register_modal.js.html" %}
+</body>
+</html>

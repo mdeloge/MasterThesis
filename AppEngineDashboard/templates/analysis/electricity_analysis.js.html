@@ -1,0 +1,89 @@
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line', 'controls']});
+    google.charts.setOnLoadCallback(drawElectricityChartOne);
+    google.charts.setOnLoadCallback(drawElectricityChartTwo);
+
+
+    function drawElectricityChartOne() {
+{#        var jsonObj = {{ electricity_chart_data_one }};#}
+{#        var data = new google.visualization.DataTable(jsonObj);#}
+
+        var chart_array = {{ electricity_chart_data_one }};
+
+        for (var i = 1; i < chart_array.length; i++){
+            chart_array[i][0] = new Date(chart_array[i][0]*1000);
+        }
+
+        var data = new google.visualization.arrayToDataTable(chart_array);
+
+
+        var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard'));
+
+        //Create a ChartRangeFilter.
+        var control = new google.visualization.ControlWrapper({
+            'controlType': 'ChartRangeFilter',
+            'containerId': 'control_1',
+            'options': {
+                //Specify which column the control operates on.
+                'filterColumnIndex': 0,
+                'ui': {
+                    'chartType': 'LineChart',
+                    'chartOptions': {
+                        'chartArea': {
+                            'width': '90%',
+                            'height': '25%'
+                        },
+                        'hAxis': {'baselineColor': 'none'},
+                        'theme': 'material'
+                    }
+                }
+            }
+        });
+
+        //Create a line chart, passing some options.
+        var lineChart = new google.visualization.ChartWrapper({
+            'chartType': 'LineChart',
+            'containerId': 'chart_div_1',
+            'options':{
+                'hAxis': {'title': 'Time'},
+                'vAxis': {'title': 'Consumption'},
+                'height': 500,
+                'theme': 'material',
+                'legend': {'position': 'none'},
+                'width': '100%'
+            }
+        });
+
+        data.sort([{column: 0}]);
+
+        //'LineChart' will update whenever you interact with 'control'.
+        dashboard.bind(control, lineChart);
+
+        //Draw the dashboard with its chart and control.
+        dashboard.draw(data);
+    }
+
+    function drawElectricityChartTwo() {
+{#        var data = new google.visualization.DataTable({{ electricity_chart_data_two }});#}
+
+        var chart_array = {{ electricity_chart_data_two }};
+
+        for (var i = 1; i < chart_array.length; i++){
+            chart_array[i][0] = new Date(chart_array[i][0]*1000);
+        }
+        var data = new google.visualization.arrayToDataTable(chart_array);
+
+
+        var options = {
+            hAxis: {title: 'Date'},
+            vAxis: {title: 'Consumption', minValue: 0}
+        };
+
+        data.sort([{column: 0}]);
+
+        var areaChart = new google.visualization.AreaChart(document.getElementById('chart_div_2'));
+        areaChart.draw(data, options);
+
+
+    }
+</script>
